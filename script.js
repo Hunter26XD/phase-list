@@ -23,17 +23,27 @@ const phases = [
         day: 5,
         title: "JavaScript",
         description: "Learn JavaScript basics"
-    },
+    }
 ];
 
 const phaseList = document.getElementById("phase-list");
 
 phases.forEach(phase => {
+    console.log(phase);
+
     phaseList.innerHTML += `
         <div class="phase-item">
             <h3>Day ${phase.day} - ${phase.title}</h3>
             <p>${phase.description}</p>
-            <button>Complete</button>
+            <button class="complete-btn">Complete</button>
         </div>
     `;
+});
+
+const completeButtons = document.querySelectorAll(".complete-btn");
+
+completeButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        button.parentElement.classList.toggle("completed");
+    });
 });

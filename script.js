@@ -23,7 +23,12 @@ const phases = [
         day: 5,
         title: "JavaScript",
         description: "Learn JavaScript basics"
-    }
+    },
+    {
+        day: 6,
+        title: "JavaScript",
+        description: "Select and print (console.log) every phase element"
+    },
 ];
 
 const phaseList = document.getElementById("phase-list");

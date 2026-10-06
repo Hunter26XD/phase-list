@@ -23,7 +23,13 @@ header{
     margin: 20px;
     border: 1px solid black;
     border-radius: 5px;
+    transition: transform 0.3s ease;
 }
+
+.phase-item:hover {
+    transform: translateY(-10px);
+}
+
 button{
     background-color: #4CAF50;
     color: white;
@@ -33,11 +39,10 @@ button{
     border-radius: 5px;
 }
 
-.completed {
-    background-color: lightgreen;
-    opacity: 0.7;
+.complete-btn {
+    transition: 0.3s;
 }
 
-.completed h3 {
-    text-decoration: line-through;
+.complete-btn:hover {
+    transform: scale(1.1);
 }

@@ -23,7 +23,12 @@ const phases = [
         day: 5,
         title: "JavaScript",
         description: "Learn JavaScript basics"
-    }
+    },
+    {
+        day: 6,
+        title: "JavaScript",
+        description: "Select and print (console.log) every phase element"
+    },
 ];
 
 const phaseList = document.getElementById("phase-list");
@@ -47,3 +52,16 @@ completeButtons.forEach(button => {
         button.parentElement.classList.toggle("completed");
     });
 });
+
+const quoteElement = document.getElementById("quote");
+const button = document.getElementById("new-quote");
+function getQuote() {
+    fetch("https://dummyjson.com/quotes/random")
+        .then(response => response.json())
+        .then(data => {
+            quoteElement.textContent = `"${data.content}" - ${data.author}`;
+        })
+}
+
+button.addEventListener("click", getQuote);
+getQuote();

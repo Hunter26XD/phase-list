@@ -29,7 +29,19 @@ const phases = [
         title: "JavaScript",
         description: "Select and print (console.log) every phase element"
     },
+        {
+        day: 7,
+        title: "JavaScript",
+        description: "Event listeners"
+    },
+        {
+        day: 8,
+        title: "JavaScript",
+        description: "Fetch API"
+    },
 ];
+
+// Get the phase list container
 
 const phaseList = document.getElementById("phase-list");
 
@@ -45,6 +57,8 @@ phases.forEach(phase => {
     `;
 });
 
+// Add event listeners to the complete buttons
+
 const completeButtons = document.querySelectorAll(".complete-btn");
 
 completeButtons.forEach(button => {
@@ -52,6 +66,8 @@ completeButtons.forEach(button => {
         button.parentElement.classList.toggle("completed");
     });
 });
+
+// Fetch a random quote from the API and display it
 
 const quoteElement = document.getElementById("quote");
 const button = document.getElementById("new-quote");

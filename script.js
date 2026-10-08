@@ -72,11 +72,19 @@ completeButtons.forEach(button => {
 const quoteElement = document.getElementById("quote");
 const button = document.getElementById("new-quote");
     async function getQuote() {
-        const response = await fetch("https://dummyjson.com/quotes/random");
+        try{
+            const response = await fetch("https://dummyjson.com/quotes/random");
 
-    const data = await response.json();
-    quoteElement.textContent = `"${data.content}" - ${data.author}`;
-};
+            if(!response.ok) {
+            throw new Error("API request failed");
+        }
+
+        const data = await response.json();
+        quoteElement.textContent = `"${data.content}" - ${data.author}`;
+        }catch(error) {
+    quoteElement.textContent = "Failed to fetch quote. Please try again later.";
+        }         
+}
 
 button.addEventListener("click", getQuote);
 getQuote();

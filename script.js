@@ -71,13 +71,12 @@ completeButtons.forEach(button => {
 
 const quoteElement = document.getElementById("quote");
 const button = document.getElementById("new-quote");
-function getQuote() {
-    fetch("https://dummyjson.com/quotes/random")
-        .then(response => response.json())
-        .then(data => {
-            quoteElement.textContent = `"${data.content}" - ${data.author}`;
-        })
-}
+    async function getQuote() {
+        const response = await fetch("https://dummyjson.com/quotes/random");
+
+    const data = await response.json();
+    quoteElement.textContent = `"${data.content}" - ${data.author}`;
+};
 
 button.addEventListener("click", getQuote);
 getQuote();
